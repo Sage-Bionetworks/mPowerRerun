@@ -41,7 +41,9 @@ FIGURE_NAME <- paste0("mPower_",
 SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref())
 SCRIPT_NAME <-  "combined_model_figures.R"
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 MODEL_SCORE <- SYN_ID_REF$intermediate$obj_pd_conf_score

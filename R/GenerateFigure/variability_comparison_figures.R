@@ -29,7 +29,9 @@ setGithubToken(
 SCRIPT_NAME <-  "variability_comparison_figures.R"
 SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref())
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 VPERM_PD_v_nonPD_SYN_ID <- SYN_ID_REF$intermediate$vperm_pd_vs_nonpd

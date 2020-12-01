@@ -35,9 +35,10 @@ SCRIPT_NAME <- "cleanActivityData.R"
 SYN_ID_REF <- list(raw = get_raw_features_ref(),
                    processed = get_processed_features_ref(),
                    table = get_synapse_table_ref())
-GIT_URL <- getPermlink(
-  getRepo(get("git")$repo), 
-  repositoryPath = file.path('R/FeatureEngineering', SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FeatureEngineering", SCRIPT_NAME))
 OUTPUT_FILENAME <- list()
 OUTPUT_FILENAME$tapping <- paste0(
   "mpowertools_processed_tap_features_", 

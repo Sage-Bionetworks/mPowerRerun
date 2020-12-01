@@ -31,7 +31,9 @@ SYN_ID_REF <- list(figures = get_figure_ref(),
                    healthcode = get_healthcode_ref())
 SCRIPT_NAME <-  "user_medication_activity_vs_tod_figures.R"
 FEATURE_LIST <- get_features()
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 FIGURE_TITLE <- paste0("mPower_",

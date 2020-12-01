@@ -37,8 +37,10 @@ TAP_TBL_SYN_ID <- SYN_ID_REF$processed$tapping
 VOICE_TBL_SYN_ID <- SYN_ID_REF$processed$voice
 REST_TBL_SYN_ID <- SYN_ID_REF$processed$resting
 OUTPUT_FOLDER <- SYN_ID_REF$healthcode$output_folder
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
-                       repositoryPath = file.path('R/FilterHealthCode', SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FilterHealthCode", SCRIPT_NAME))
 OUTPUT_SYN_ID <- SYN_ID_REF$healthcode$output_folder
 OUTPUT_FILENAME <- paste0(
   "Nof1_filtered_cohort_",

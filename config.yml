@@ -1,7 +1,8 @@
 default:
   git:
     path: "~/git_token.txt"
-    repo: "arytontediarjo/mPowerRerun"
+    repo: "Sage-Bionetworks/mPowerRerun"
+    branch: "main"
   metadata:
     study: 'mPower'
     user_group: 'public data'

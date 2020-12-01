@@ -30,7 +30,9 @@ setGithubToken(
 SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref())
 SCRIPT_NAME <-  "demographic_confounder_figures.R"
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 CORR_TBL_SYN_ID <- SYN_ID_REF$intermediate$confounder_corr

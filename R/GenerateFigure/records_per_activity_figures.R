@@ -31,7 +31,9 @@ SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref(),
                    processed = get_processed_features_ref())
 SCRIPT_NAME <-  "records_per_activity_figures.R"
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 FIGURE_TITLE <- paste0("mPower_",

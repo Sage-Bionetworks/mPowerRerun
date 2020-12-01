@@ -38,7 +38,9 @@ set.seed(123456789)
 #######################################################
 SCRIPT_NAME <- "trainOnMPower_predictObjPD.R"
 GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
+    getRepo(get("git")$repo,
+            ref="branch", 
+            refName=get("git")$branch), 
     repositoryPath = file.path('R/Analyses', SCRIPT_NAME))
 SYN_ID_REF <- list(processed = get_processed_features_ref(),
                    healthcode = get_healthcode_ref(),

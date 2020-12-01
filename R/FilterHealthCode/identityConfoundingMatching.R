@@ -29,8 +29,10 @@ SYN_ID_REF <- SYN_ID_REF <- list(healthcode = get_healthcode_ref(),
                                  processed = get_processed_features_ref())
 FEATURE_LIST <- get_features()
 SCRIPT_NAME <- "identityConfoundingMatching.R"
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
-                       repositoryPath = file.path('R/FilterHealthCode', SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FilterHealthCode", SCRIPT_NAME))
 OUTPUT_SYN_ID <- SYN_ID_REF$healthcode$output_folder
 OUTPUT_FILENAME <- paste0(
     "identity_confounding_matched_cohort_",

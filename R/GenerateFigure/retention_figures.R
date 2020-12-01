@@ -35,7 +35,9 @@ SYN_ID_REF <- list(raw = get_raw_features_ref(),
                    figures = get_figure_ref())
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 GIT_URL <- getPermlink(
-  getRepo(get("git")$repo), 
+  getRepo(get("git")$repo,
+          ref="branch", 
+          refName=get("git")$branch), 
   repositoryPath = file.path('R/GenerateFigure',  SCRIPT_NAME))
 TAP_TBL_SYN_ID <- SYN_ID_REF$raw$tapping
 VOICE_TBL_SYN_ID <- SYN_ID_REF$raw$voice

@@ -37,7 +37,9 @@ SYN_ID_REF <- list(processed = get_processed_features_ref(),
                    intermediate = get_intermediate_data_ref(),
                    healthcode = get_healthcode_ref())
 FEATURE_LIST <- get_features()
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = 
                          file.path('R/Analyses', SCRIPT_NAME))
 OUTPUT_FOLDER_ID <- SYN_ID_REF$intermediate$output_folder

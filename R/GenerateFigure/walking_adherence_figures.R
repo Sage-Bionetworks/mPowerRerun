@@ -30,11 +30,12 @@ setGithubToken(
 SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref())
 SCRIPT_NAME <-  "walking_adherence_figures.R"
-GIT_URL <- getPermlink(getRepo(get("git")$repo), 
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
                        repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 ADHERENCE_SYN_ID <- SYN_ID_REF$intermediate$check_walking_adherence
-
 FIGURE_TITLE <- paste0("mPower_",
   gsub(" ", "_", get("metadata")$user_group), 
   "_supplementary_figure_10",".png")

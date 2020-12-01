@@ -41,7 +41,9 @@ OUTPUT_DATA <- MODEL_OUTPUT <- paste0(
 WALK_ACTIVITY_TABLE_SYN_ID <-SYN_ID_REF$table$walking
 OUTPUT_FOLDER_ID <- SYN_ID_REF$intermediate$output_folder
 GIT_URL <- getPermlink(
-  getRepo(get("git")$repo), 
+  getRepo(get("git")$repo,
+          ref="branch", 
+          refName=get("git")$branch), 
   repositoryPath = file.path('R/Analyses',  SCRIPT_NAME))
 ANNOTATIONS <- list(
   analysisType = "walking task adherence",

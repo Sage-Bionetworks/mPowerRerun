@@ -36,10 +36,10 @@ OUTPUT_FOLDER_ID <- SYN_ID_REF$raw$output_folder
 OUTPUT_FILE <- paste0(
     "MATLAB_voice_features_", 
     gsub(" ", "_", get("metadata")$user_group), ".tsv")
-GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
-    repositoryPath = file.path(
-        'R/FeatureExtraction',  SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FeatureExtraction", SCRIPT_NAME))
 ANNOTATIONS <- list(
     study = get("metadata")$study,
     userSubset = get("metadata")$user_group,

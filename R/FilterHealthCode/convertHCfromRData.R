@@ -34,9 +34,10 @@ TAP_TZ_DATA <- "syn8113978"
 REST_TZ_DATA <- "syn8113984"
 WALK_TZ_DATA <- "syn8113982"
 VOICE_TZ_DATA <- "syn8113980"
-GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
-    repositoryPath = file.path('R/FilterHealthCode', SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FilterHealthCode", SCRIPT_NAME))
 OUTPUT_FILE <- list()
 OUTPUT_FILE$pd_case_v_control <- paste0(
     "PD_case_vs_controls_matched_cohort_",

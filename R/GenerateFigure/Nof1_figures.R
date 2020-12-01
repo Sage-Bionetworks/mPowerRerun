@@ -44,7 +44,9 @@ SYN_ID_REF <- list(figures = get_figure_ref(),
                    intermediate = get_intermediate_data_ref())
 SCRIPT_NAME <-  "Nof1_figures.R"
 GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
+    getRepo(get("git")$repo,
+            ref="branch", 
+            refName=get("git")$branch), 
     repositoryPath = file.path("R/GenerateFigure", SCRIPT_NAME))
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 N_OF_1_ANALYSIS_SYN_ID <- SYN_ID_REF$intermediate$n_of_1_analysis

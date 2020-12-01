@@ -77,6 +77,7 @@ Once the environment is all set up, here are some quick steps you can take to ru
 git:
     path: "<path_to_git_token>/git_token.txt" #your path to git token
     repo: "<path_to_git_repo>/mPowerRerun" #your cloned mPowerRerun Github Repo
+    branch: "main"
 ```
 3. Set metadata that will be used to set the Synapse Annotations of the data
 ```yml

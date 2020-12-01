@@ -1,6 +1,18 @@
+# files from running script
+*.log
+serializedModel/
+*_checkpoints/
+
+
+#DS_store
+.DS_store
+
 # History files
+.Rprofile
 .Rhistory
 .Rapp.history
+*.Rproj
+*.Rbuildignore
 
 # Session Data files
 .RData

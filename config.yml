@@ -1,0 +1,18 @@
+default:
+  git:
+    path: "~/git_token.txt"
+    repo: "arytontediarjo/mPowerRerun"
+  metadata:
+    study: 'mPower'
+    user_group: 'public data'
+  output:
+    project_id: 'syn20816722' # refer to your desired output project id
+    folder_name: "mPower Rerun Results - Public - Test"
+    file_view_name: 'mPower Rerun File View - Public - Test'
+  synapse_tables:
+    demo: "syn5511429"
+    gait: "syn5511449" #walk and balance test 
+    tap: "syn5511439"
+    voice: "syn5511444"
+  additional:
+    voice_features: 'syn22041873' #generated voice features from matlab

@@ -1,0 +1,31 @@
+Package: mPowerRerun
+Type: Package
+Title: MPower Study Rerun 
+Version: 0.1.0
+Author: Aryton Tediarjo
+Maintainer: Aryton Tediarjo <aryton.tediarjo@sagebase.org>
+Description: A Package for rerunning mPower Study
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports: 
+    magrittr,
+    dplyr,
+    plyr,
+    forecast,
+    pROC,
+    gplots,
+    sandwich,
+    lmtest,
+    ppcor,
+    glmnet,
+    energy,
+    lubridate,
+    MatchIt,
+    tidyverse,
+    randomForest
+RoxygenNote: 7.1.0
+    
+    
+    

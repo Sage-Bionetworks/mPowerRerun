@@ -82,8 +82,8 @@ git:
 3. Set metadata that will be used to set the Synapse Annotations of the data
 ```yml
 metadata:
-    study: 'mPower Mobile Parkinson Disease Study' # the name of the study
-    time_freeze: "6 months" # the time span used for the data
+    study: 'mPower' # the name of the study
+    user_group: 'public data' # this will be used for naming convention and annotation
 ```
 4. Set your output information
 ```yml

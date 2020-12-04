@@ -37,8 +37,7 @@ GIT_URL <- getPermlink(getRepo(get("git")$repo,
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 CORR_TBL_SYN_ID <- SYN_ID_REF$intermediate$confounder_corr
 DCORR_TBL_SYN_ID <- SYN_ID_REF$intermediate$confounder_dcorr
-ANNOTATIONS <- list(study = tolower(get("metadata")$study),
-                    analysisType = "demographics confounders",
+ANNOTATIONS <- list(analysisType = "demographics confounders",
                     userSubset = tolower(get("metadata")$user_group), 
                     pipelineStep = "figures")
 

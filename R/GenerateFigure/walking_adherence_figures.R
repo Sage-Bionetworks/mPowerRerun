@@ -40,7 +40,6 @@ FIGURE_TITLE <- paste0("mPower_",
   gsub(" ", "_", get("metadata")$user_group), 
   "_supplementary_figure_10",".png")
 ANNOTATIONS <- list(
-  study = tolower(get("metadata")$study),
   analysisType = "walking task adherence",
   userSubset = tolower(get("metadata")$user_group), 
   pipelineStep = "figures")

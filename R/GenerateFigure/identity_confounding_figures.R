@@ -40,8 +40,7 @@ FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 FIGURE_TITLE <- FIGURE_TITLE <- paste0("mPower_",
                                        gsub(" ", "_", get("metadata")$user_group), 
                                        "_supplementary_figure_2",".png")
-ANNOTATIONS <- list(study = tolower(get("metadata")$study),
-                    analysisType = "identity confounding",
+ANNOTATIONS <- list(analysisType = "identity confounding",
                     userSubset = tolower(get("metadata")$user_group), 
                     pipelineStep = "figures")
 

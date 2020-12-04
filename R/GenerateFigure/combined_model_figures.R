@@ -48,7 +48,6 @@ GIT_URL <- getPermlink(getRepo(get("git")$repo,
 FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 MODEL_SCORE <- SYN_ID_REF$intermediate$obj_pd_conf_score
 ANNOTATIONS <- list(
-    study = tolower(get("metadata")$study),
     analysisType = "combined model",
     analysisSubtype = "confidence score on objective PD users",
     userSubset = tolower(get("metadata")$user_group), 

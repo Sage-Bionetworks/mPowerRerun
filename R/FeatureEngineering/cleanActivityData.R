@@ -169,8 +169,7 @@ store.to.synapse <- function(activity.data,
                              description){
   annotations.list <- annotations.list %>% purrr::map(., .f = function(x){x[[1]]})
   annotations.list$pipelineStep <- "processed"
-  annotations.list$dataSubtype <- "processed"
-  activity <- annotations.list$digitalAssessmentDetails
+  activity <- annotations.list$task
   output.file <- OUTPUT_FILENAME[[activity]]
   activity.data %>% write.table(., 
                                 output.file, 

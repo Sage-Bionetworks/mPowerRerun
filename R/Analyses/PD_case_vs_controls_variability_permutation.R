@@ -45,9 +45,7 @@ MODEL_OUTPUT <- paste0(
 ANNOTATIONS <- list(
   analysisType = "case vs controls",
   analysisSubtype = "feature variability comparison",
-  dataSubtype = "dataMatrix",
   userSubset = get("metadata")$user_group,
-  study = get("metadata")$study,
   pipelineStep= "intermediary data")
 
 

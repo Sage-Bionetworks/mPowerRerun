@@ -46,9 +46,7 @@ MODEL_OUTPUT <- paste0(
     gsub(" ", "_", get("metadata")$user_group), ".h5")
 ANNOTATIONS <- list(
     analysisType = "identity confounding",
-    dataSubtype = "dataMatrix",
     userSubset = get("metadata")$user_group,
-    study = get("metadata")$study,
     pipelineStep= "intermediary data")
 
 #######################################################

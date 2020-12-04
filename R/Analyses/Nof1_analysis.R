@@ -48,11 +48,9 @@ MODEL_OUTPUT <- paste0(
   gsub(" ", "_", get("metadata")$user_group), ".h5")
 ANNOTATIONS <- list(
   analysisType = "n of 1 analysis",
-  dataSubtype = "dataMatrix",
+  analysisSubtype = "treatment vs tod - relative importance",
   userSubset = get("metadata")$user_group,
-  study = get("metadata")$study,
-  pipelineStep= "intermediary data",
-  analysisSubtype = c("treatment vs time-of-day", "relative importances"))
+  pipelineStep= "intermediary data")
 PRE_MEDICATION_THRESH <- 15
 POST_MEDICATION_THRESH <- 15
 P_VAL_THRESHOLD <- 0.05

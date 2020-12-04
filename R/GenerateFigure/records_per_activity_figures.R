@@ -39,8 +39,7 @@ FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 FIGURE_TITLE <- paste0("mPower_",
                        gsub(" ", "_", get("metadata")$user_group), 
                        "_supplementary_figure_7",".png")
-ANNOTATIONS <- list(study = tolower(get("metadata")$study),
-                    analysisType = "records per mPower tasks",
+ANNOTATIONS <- list(analysisType = "records per mpower tasks",
                     userSubset = tolower(get("metadata")$user_group), 
                     pipelineStep = "figures")
 

@@ -45,9 +45,7 @@ MODEL_OUTPUT <- paste0("demo_confounders_correlation_",
 ANNOTATIONS <- list(
   analysisType = "demographics confounders",
   analysisSubtype = "correlation test",
-  dataSubtype = "dataMatrix",
   userSubset = get("metadata")$user_group,
-  study = get("metadata")$study,
   pipelineStep= "intermediary data")
 
 #######################################################

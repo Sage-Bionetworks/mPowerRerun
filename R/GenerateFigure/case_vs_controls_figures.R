@@ -45,13 +45,11 @@ SUPPL_FIGURE_4 <- paste0("mPower_",
                          gsub(" ", "_", get("metadata")$user_group), 
                          "_supplementary_figure_4",".png")
 ANNOTATIONS_SUPPL_3 <- list(
-  study = tolower(get("metadata")$study),
   analysisType = "case vs controls",
   analysisSubtype = "performance using random forests",
   userSubset = tolower(get("metadata")$user_group), 
   pipelineStep = "figures")
 ANNOTATIONS_SUPPL_4 <- list(
-  study = tolower(get("metadata")$study),
   analysisType = "case vs controls",
   analysisSubtype = "performance using ridge regression",
   userSubset = tolower(get("metadata")$user_group), 

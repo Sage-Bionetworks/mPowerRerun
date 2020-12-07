@@ -87,7 +87,7 @@ Once configurations are made, this project will be encapsulated into the usage o
 
 ## Miscellaneous
 #### a. Serialized Model
-We are storing the serialized model of our end **Random Forest** (trained on sensor features only) into a folder called serializedModel/ in format of .RData during the [objectivePD cohort prediction](https://github.com/arytontediarjo/mPowerRerun/blob/master/R/Analyses/trainOnMPower_predictObjPD.R). This file can be used for your analytical purposes or making predictions based on the predefined sensor features of each activity.
+We are storing the serialized model of our end **Random Forest** (trained on sensor features only) into a folder called serializedModel/ in .RDS serialized file during the [objectivePD cohort prediction](https://github.com/arytontediarjo/mPowerRerun/blob/master/R/Analyses/trainOnMPower_predictObjPD.R). This file can be used for your analytical purposes or making predictions based on the predefined sensor features of each activity.
 
 #### b. Debugging & Logging
 The pipelne process will be tracked by a logger; pipeline.log will track timestamps of each code execution, error.log will show which script is having an error.

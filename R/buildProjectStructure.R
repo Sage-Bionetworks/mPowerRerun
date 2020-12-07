@@ -71,7 +71,7 @@ create.file.view <- function(scopeId){
                                     maximumSize = 10),
                              Column(name = "study",
                                     columnType = "STRING",
-                                    maximumSize = 10),
+                                    maximumSize = 50),
                              Column(name = "studyOrProject",
                                     columnType = "STRING"),
                              Column(name = "sensorType",

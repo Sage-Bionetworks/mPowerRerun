@@ -25,6 +25,12 @@ We also have a wiki showcasing the results and guide for getting figure results 
 - [Synapse account](https://docs.synapse.org/articles/getting_started.html) 
 - [Github Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 
+To get access into synapse you would log in to your synapse account into your R session, and log in with your credentials.
+And by typing your credentials to the RStudio Console you will be able to log in and run the pipeline. 
+```R
+synLogin(synId, password, rememberMe=TRUE)
+```
+
 ### 2.) Using Docker (Suggested)
 
 #### Reference to Docker 
@@ -57,14 +63,6 @@ docker run -it <IMAGE_NAME> /bin/bash
 After your desired environment is built, clone the repository to get the `mPowerRerun` tool in your Docker container.
 ```bash
 git clone https://github.com/arytontediarjo/mPowerRerun.git 
-```
-
-### 4.) Log in to your Synapse Account:
-
-To get access into synapse you would log in to your synapse account into your R session, and log in with your credentials.
-And by typing your credentials to the RStudio Console you will be able to log in and run the pipeline. 
-```R
-synLogin(synId, password, rememberMe=TRUE)
 ```
 
 ## Pipeline Steps

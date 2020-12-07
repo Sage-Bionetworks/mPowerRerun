@@ -25,12 +25,6 @@ We also have a wiki showcasing the results and guide for getting figure results 
 - [Synapse account](https://docs.synapse.org/articles/getting_started.html) 
 - [Github Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 
-To get access into synapse you would log in to your synapse account into your R session, and log in with your credentials.
-And by typing your credentials to the RStudio Console you will be able to log in and run the pipeline. 
-```R
-synLogin(synId, password, rememberMe=TRUE)
-```
-
 ### 2.) Using Docker (Suggested)
 
 #### Reference to Docker 
@@ -43,14 +37,6 @@ This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docke
 ```bash
 docker build -t <IMAGE_NAME> . 
 ```
-
-Now, you have the option to run in either an RStudio Server or interactively in a Bash CLI.
-
-- Using RStudio Server:
-```bash
-docker run -d -p 8787:8787 -e PASSWORD=sage <IMAGE_NAME>
-```
-
 - Interactively in Bash:
 ```bash
 docker run -it <IMAGE_NAME> /bin/bash

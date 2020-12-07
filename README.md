@@ -31,20 +31,12 @@ We also have a wiki showcasing the results and guide for getting figure results 
 [Install Docker.](https://docs.docker.com/v17.12/install/#supported-platforms)
 
 #### Create Docker Image & Run Container
-This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment. The container will also contain built-in Python environment for running ObjectivePD results.
+This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment.
 
 - Create Docker Image:
 ```bash
 docker build -t <IMAGE_NAME> . 
 ```
-
-Now, you have the option to run in either an RStudio Server or interactively in a Bash CLI.
-
-- Using RStudio Server:
-```bash
-docker run -d -p 8787:8787 -e PASSWORD=sage <IMAGE_NAME>
-```
-
 - Interactively in Bash:
 ```bash
 docker run -it <IMAGE_NAME> /bin/bash
@@ -52,20 +44,6 @@ docker run -it <IMAGE_NAME> /bin/bash
 - `-d` flag allows you the retain use of the terminal while the Docker image is running 
 - `-p` specifies port of choice
 - `-it` for interactive mode in the Docker container
-
-### 3.) Clone Repository
-After your desired environment is built, clone the repository to get the `mPowerRerun` tool in your Docker container.
-```bash
-git clone https://github.com/arytontediarjo/mPowerRerun.git 
-```
-
-### 4.) Log in to your Synapse Account:
-
-To get access into synapse you would log in to your synapse account into your R session, and log in with your credentials.
-And by typing your credentials to the RStudio Console you will be able to log in and run the pipeline. 
-```R
-synLogin(synId, password, rememberMe=TRUE)
-```
 
 ## Pipeline Steps
 
@@ -109,7 +87,7 @@ Once configurations are made, this project will be encapsulated into the usage o
 
 ## Miscellaneous
 #### a. Serialized Model
-We are storing the serialized model of our end **Random Forest** (trained on sensor features only) into a folder called serializedModel/ in format of .RData during the [objectivePD cohort prediction](https://github.com/arytontediarjo/mPowerRerun/blob/master/R/Analyses/trainOnMPower_predictObjPD.R). This file can be used for your analytical purposes or making predictions based on the predefined sensor features of each activity.
+We are storing the serialized model of our end **Random Forest** (trained on sensor features only) into a folder called serializedModel/ in .RDS serialized file during the [objectivePD cohort prediction](https://github.com/arytontediarjo/mPowerRerun/blob/master/R/Analyses/trainOnMPower_predictObjPD.R). This file can be used for your analytical purposes or making predictions based on the predefined sensor features of each activity.
 
 #### b. Debugging & Logging
 The pipelne process will be tracked by a logger; pipeline.log will track timestamps of each code execution, error.log will show which script is having an error.

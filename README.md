@@ -16,7 +16,7 @@ This code repository contains streamlined approach in rerunning Sage Bionetworks
 6. Assessment on demographics confounders based of correlation and distance correlation
 7. Random Forest Combined Model Performances to Standardized PD Metrics (UPDRS, SE-ADL, Hoehn Yahr)
 
-We also have a wiki showcasing the results and guide for getting figure results from the analysis [link to wiki](https://www.synapse.org/#!Synapse:syn22151120/wiki/604781)
+We also have a wiki showcasing the results and guide for getting figure results from the analysis [link to wiki](https://www.synapse.org/#!Synapse:syn23277418/wiki/606593)
 
 ## Environment
 

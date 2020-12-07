@@ -31,7 +31,7 @@ We also have a wiki showcasing the results and guide for getting figure results 
 [Install Docker.](https://docs.docker.com/v17.12/install/#supported-platforms)
 
 #### Create Docker Image & Run Container
-This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment. The container will also contain built-in Python environment for running ObjectivePD results.
+This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment.
 
 - Create Docker Image:
 ```bash
@@ -44,12 +44,6 @@ docker run -it <IMAGE_NAME> /bin/bash
 - `-d` flag allows you the retain use of the terminal while the Docker image is running 
 - `-p` specifies port of choice
 - `-it` for interactive mode in the Docker container
-
-### 3.) Clone Repository
-After your desired environment is built, clone the repository to get the `mPowerRerun` tool in your Docker container.
-```bash
-git clone https://github.com/arytontediarjo/mPowerRerun.git 
-```
 
 ## Pipeline Steps
 

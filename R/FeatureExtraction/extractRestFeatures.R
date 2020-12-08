@@ -36,9 +36,10 @@ OUTPUT_FOLDER_ID <- SYN_ID_REF$raw$output_folder
 OUTPUT_FILE <- paste0(
     "mpowertools_raw_rest_features_", 
     gsub(" ", "_", get("metadata")$user_group), ".tsv")
-GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
-    repositoryPath = file.path('R/FeatureExtraction',  SCRIPT_NAME))
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FeatureExtraction", SCRIPT_NAME))
 ANNOTATIONS <- list(task = "resting", 
                     pipelineStep = "raw",
                     userSubset = get("metadata")$user_group)

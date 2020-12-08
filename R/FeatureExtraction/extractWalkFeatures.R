@@ -159,17 +159,9 @@ main <- function(){
     write.table(combined.walk.features, 
                 OUTPUT_FILE, sep="\t", row.names=F, quote=F, na="")
     f <- synapser::File(OUTPUT_FILE, OUTPUT_FOLDER_ID)
-    f$annotations <- list(
-        study = get("metadata")$study,
-        pipelineStep = "raw",
-        dataType = "sensor",
-        dataSubtype = "raw",
-        digitalAssessmentDetails = "walking",
-        digitalAssessmentCategory = "gait",
-        dataCollectionMethod = "active",
-        sensorType = "accelerometer",
-        devicePlatform = "iOS",
-        deviceLocation = "pocket")
+    f$annotations <- list(task = "walking", 
+                          pipelineStep = "raw",
+                          userSubset = get("metadata")$user_group)
     synStore(f, activity = Activity(executed = GIT_URL, 
                                     used = c(WALK_ACTIVITY_TABLE_SYN_ID)))
     unlink(OUTPUT_FILE)

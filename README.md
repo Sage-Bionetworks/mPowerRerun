@@ -1,14 +1,16 @@
 # Sage Bionetworks - mPowerRerun
 
+TODO: Make some changes after paper is public
+
 Author: Elias Chaibub Neto, Larsson Omberg, Aryton Tediarjo
 
 CP: aryton.tediarjo@sagebase.org
 
 ## Introduction
-This code repository contains streamlined approach in rerunning Sage Bionetworks Nature Biotech's Research Study named **"MPower - A Smartphone approach to Remotely Monitor PD and Individual Responses to Therapy"**. This repo will act as a pipeline for extracting data from Synapse into the intermediate data (analysis metrics, machine learning performance) that is used for the figure deliverables.
+This code repository contains streamlined approach in rerunning Sage Bionetworks Nature Biotech's Research Study named **"mPower - Features, model and analysis for Omberg et al (2021)"**. This repo will act as a pipeline for extracting data from Synapse into the intermediate data (analysis metrics, machine learning performance) that is used for the figure deliverables.
 
 **Analysis being done in this Git Repository:**
-1. PD Case vs Control Survival Analysis
+1. PD Case vs Retention Analysis
 2. Identity Confounding on Repeated Measures
 3. PD Case vs Controls Analysis (Ridge Regression and Random Forest)
 4. Variability Comparisons on Extracted Features based of Random Forest Model
@@ -25,7 +27,9 @@ We also have a wiki showcasing the results and guide for getting figure results 
 - [Synapse account](https://docs.synapse.org/articles/getting_started.html) 
 - [Github Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 
-### 2.) Using Docker (Suggested)
+### 2.) Clone this Github Repo
+
+### 3.) Using Docker (Suggested)
 
 #### Reference to Docker 
 [Install Docker.](https://docs.docker.com/v17.12/install/#supported-platforms)

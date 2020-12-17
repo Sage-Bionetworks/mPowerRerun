@@ -43,8 +43,7 @@ TAP_TBL_SYN_ID <- SYN_ID_REF$raw$tapping
 VOICE_TBL_SYN_ID <- SYN_ID_REF$raw$voice
 REST_TBL_SYN_ID <- SYN_ID_REF$raw$resting
 WALK_TBL_SYN_ID <- SYN_ID_REF$raw$walking
-ANNOTATIONS <- list(study = tolower(get("metadata")$study),
-                    analysisType = "mPower retention analysis",
+ANNOTATIONS <- list(analysisType = "retention analysis",
                     userSubset = tolower(get("metadata")$user_group),
                     pipelineStep = "figures")
 

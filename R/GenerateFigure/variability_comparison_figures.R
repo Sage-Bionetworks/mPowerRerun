@@ -42,8 +42,7 @@ SUPPL_FIGURE_5 <- paste0("mPower_",
 SUPPL_FIGURE_6 <- paste0("mPower_",
                          gsub(" ", "_", get("metadata")$user_group), 
                          "_supplementary_figure_6",".png")
-ANNOTATIONS <-list(study = tolower(get("metadata")$study),
-                   analysisType = "case vs controls",
+ANNOTATIONS <-list(analysisType = "case vs controls",
                    analysisSubtype = "feature variability comparison",
                    userSubset = tolower(get("metadata")$user_group),
                    pipelineStep = "figures")

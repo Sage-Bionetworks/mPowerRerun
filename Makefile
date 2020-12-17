@@ -12,7 +12,7 @@ GENERATE_FILTERED_HEALTHCODE_PATH=R/FilterHealthCode/
 #################################################################################
 
 all: clean_log project raw_features processed_features filtered_healthcodes analyses figures
-regenerate_paper_results: clean_log project raw_features processed_features replicate_healthcodes analyses figures
+regenerate_paper: clean_log project raw_features processed_features replicate_healthcodes analyses figures
 
 # create directory for I/O when running in makefile
 clean_log:

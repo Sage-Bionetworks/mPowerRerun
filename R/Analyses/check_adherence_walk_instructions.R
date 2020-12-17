@@ -47,9 +47,7 @@ GIT_URL <- getPermlink(
   repositoryPath = file.path('R/Analyses',  SCRIPT_NAME))
 ANNOTATIONS <- list(
   analysisType = "walking task adherence",
-  dataSubtype = "processed",
   userSubset = get("metadata")$user_group,
-  study = get("metadata")$study,
   pipelineStep= "intermediary data")
 
 

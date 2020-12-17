@@ -41,20 +41,9 @@ GIT_URL <- getPermlink(getRepo(get("git")$repo,
                                refName=get("git")$branch), 
                        repositoryPath = file.path("R/FeatureExtraction", SCRIPT_NAME))
 ANNOTATIONS <- list(
-    study = get("metadata")$study,
     userSubset = get("metadata")$user_group,
     pipelineStep = "raw",
-    dataType = "sensor",
-    dataSubtype = "raw",
-    consortium = "mHealth",
-    analysisType = "",
-    digitalAssessmentDetails = "voice",
-    digitalAssessmentCategory = "phonation",
-    dataCollectionMethod = "active",
-    sensorType = "microphone",
-    devicePlatform = "iOS",
-    deviceLocation = "hand",
-    dataAccessInstructions = "syn23277418/wiki/607032")
+    task = "voice")
 
 
 main <- function(){

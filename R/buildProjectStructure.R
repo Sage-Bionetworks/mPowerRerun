@@ -17,29 +17,6 @@ config::get()
 #############################################################
 # Helpers
 #############################################################  
-
-create.project.annotation <- function(){
-  project.entity <- synGet(get("output")$project_id)
-  project.annotations <- list(
-    study = get("metadata")$study,
-    diagnosis = c("Parkinson's Disease", "Control"),
-    consortium = "mHealth",
-    dataCollectionMethod = "active",
-    deviceType ="handheld",
-    sensorType = c("accelerometer", "gyroscope", "microphone"),
-    devicePlatform = c("iOS"),
-    deviceLocation = c("pocket", "flat surface"),
-    reportedOutcome = c("medication report", "MDS-UPDRS"),
-    digitalAssessmentCategory = c("motor coordination", "gait"),
-    digitalAssessmentDetails = c("walking", "tapping", "resting", "phonation"),
-    dhPortalIndex = FALSE,
-    isDHProject = FALSE,
-    dataAccessInstructions = NA,
-    studyDescription = NA)
-  synSetAnnotations(project.entity, annotations = project.annotations)
-}
-
-
 #' function for creating parent folder
 create.parent.folder <- function(){
   folder <- Folder(get('output')$folder_name, 
@@ -63,9 +40,8 @@ create.pipeline.template <- function(parentId){
                folder <- Folder(folder.mapping[[subtype]], 
                                 parent = parentId)
                folder$annotations <- list(
-                 study = get("metadata")$study,
                  pipelineStep = tolower(subtype),
-                 userGroup = get("metadata")$user_group)
+                 userSubset = get("metadata")$user_group)
                folder <- synStore(folder)
                return(folder$properties$id)})
   return(parentId)
@@ -76,30 +52,68 @@ create.pipeline.template <- function(parentId){
 create.file.view <- function(scopeId){
   EntityViewSchema(name= get('output')$file_view_name,
                   columns = c(
-                             Column(name = "study",
-                                    columnType = "STRING"),
-                             Column(name = "deviceType",
-                                    columnType = "STRING"),
-                             Column(name = "sensorType",
-                                    columnType = "STRING_LIST"),
-                             Column(name = "digitalAssessmentCategory",
-                                    columnType = "STRING_LIST"),
-                             Column(name = "digitalAssessmentDetails",
-                                    columnType = "STRING_LIST"),
-                             Column(name = "dataAccessInstructions",
-                                    columnType = "STRING"),
-                             Column(name = "dataType",
-                                    columnType = "STRING"),
-                             Column(name = "dataSubtype",
-                                    columnType = "STRING"),
+                             Column(name = "task",
+                                    columnType = "STRING",
+                                    maximumSize = 10),
                              Column(name = "analysisType",
-                                    columnType = "STRING"),
+                                    columnType = "STRING",
+                                    maximumSize = 30),
                              Column(name = "analysisSubtype",
                                     columnType = "STRING"),
                              Column(name = "pipelineStep",
-                                    columnType = "STRING"),
+                                    columnType = "STRING",
+                                    maximumSize = 22),
                              Column(name = "userSubset",
-                                    columnType = "STRING")),
+                                    columnType = "STRING",
+                                    maximumSize = 15),
+                             Column(name = "consortium",
+                                    columnType = "STRING",
+                                    maximumSize = 10),
+                             Column(name = "study",
+                                    columnType = "STRING"),
+                             Column(name = "studyOrProject",
+                                    columnType = "STRING"),
+                             Column(name = "sensorType",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 20),
+                             Column(name = "deviceType",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 10),
+                             Column(name = "devicePlatform",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 20),
+                             Column(name = "dataCollectionMethod",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 15),
+                             Column(name = "deviceLocation",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 15),
+                             Column(name = "diagnosis",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 20),
+                             Column(name = "reportedOutcome",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 20),
+                             Column(name = "digitalAssessmentCategory",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 15),
+                             Column(name = "digitalAssessmentDetails",
+                                    columnType = "STRING_LIST",
+                                    maximumSize = 10),
+                             Column(name = "dataType",
+                                    columnType = "STRING",
+                                    maximumSize = 15),
+                             Column(name = "dataSubtype",
+                                    columnType = "STRING",
+                                    maximumSize = 15),
+                             Column(name = "dhPortalIndex",
+                                    columnType = "BOOLEAN"),
+                             Column(name = "dataDescriptionLocation",
+                                    columnType = "STRING",
+                                    maximumSize = 30),
+                             Column(name = "dataAccessInstructions",
+                                    columnType = "STRING",
+                                    maximumSize = 30)),
                            parent = get('output')$project_id,
                            add_default_columns=F,
                            scopes = scopeId,
@@ -111,7 +125,6 @@ create.file.view <- function(scopeId){
 # Main Function
 #############################################################  
 main <- function(){
-  create.project.annotation()
   create.parent.folder() %>% 
     create.pipeline.template(.) %>% 
     create.file.view(.)

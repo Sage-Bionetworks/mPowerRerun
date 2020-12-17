@@ -37,12 +37,9 @@ OUTPUT_SYN_ID <- SYN_ID_REF$healthcode$output_folder
 OUTPUT_FILENAME <- paste0(
     "identity_confounding_matched_cohort_",
     gsub(" ", "_", get("metadata")$user_group), ".tsv")
-ANNOTATIONS <- list(study = get("metadata")$study,
-                    userSubset = get("metadata")$user_group,
-                    dataSubtype = "processed",
-                    analysisType = "identity confounding",
+ANNOTATIONS <- list(analysisType = "identity confounding",
                     pipelineStep = "healthcode subsampling",
-                    digitalAssessmentDetails = c("tapping", "walking", "resting", "voice"))
+                    userSubset = get("metadata")$user_group)
 
 ############################################
 ## helper function

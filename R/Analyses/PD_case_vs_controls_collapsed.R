@@ -44,9 +44,7 @@ MODEL_OUTPUT <- paste0("PD_case_vs_controls_collapsed_measurements_",
 ANNOTATIONS <- list(
   analysisType = "case vs controls",
   analysisSubtype = "collapsed measurements",
-  dataSubtype = "dataMatrix",
   userSubset = get("metadata")$user_group,
-  study = get("metadata")$study,
   pipelineStep= "intermediary data")
 
 

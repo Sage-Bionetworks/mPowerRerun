@@ -4,16 +4,15 @@ default:
     repo: "Sage-Bionetworks/mPowerRerun"
     branch: "main"
   metadata:
-    study: 'mPower'
-    user_group: 'public data'
+    user_group: '6 months' # annotation helper for referring which user group
   output:
     project_id: 'syn20816722' # refer to your desired output project id
-    folder_name: "mPower Rerun Results - Public - Test"
-    file_view_name: 'mPower Rerun File View - Public - Test'
+    folder_name: "mPower Rerun Results"
+    file_view_name: "mPower Rerun Results - File View"
   synapse_tables:
-    demo: "syn5511429"
-    gait: "syn5511449" #walk and balance test 
-    tap: "syn5511439"
-    voice: "syn5511444"
+    demo: "syn7222419"
+    gait: "syn7222425" #walk and balance test 
+    tap: "syn7222423"
+    voice: "syn7222424"
   additional:
     voice_features: 'syn22041873' #generated voice features from matlab

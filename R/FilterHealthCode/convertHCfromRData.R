@@ -162,10 +162,10 @@ main <- function(){
     file.entity<- synapser::File(OUTPUT_FILE$pd_case_v_control, 
                                  parent = OUTPUT_SYN_ID)
     file.entity$annotations <- list(
-        digitalAssessmentDetails = c("tapping", "walking", "resting", "voice"),
-        dataSubtype = "cohort",
-        analysis = "case vs controls",
-        study = get("metadata")$study)
+        analysisType = "case vs controls",
+        pipelineStep = "healthcode subsampling",
+        userSubset = get("metadata")$user_group
+    )
     synStore(
         file.entity, activity = Activity(
         'replicate matched RData',
@@ -176,10 +176,10 @@ main <- function(){
     ## store to synapse with the correct annotation
     file.entity<- synapser::File(OUTPUT_FILE$identity_confounding, parent = OUTPUT_SYN_ID)
     file.entity$annotations <- list(
-        digitalAssessmentDetails = c("tapping", "walking", "resting", "voice"),
-        dataSubtype = "cohort",
-        analysis = "identity confounding",
-        study = get("metadata")$study)
+        analysisType = "identity confounding",
+        pipelineStep = "healthcode subsampling",
+        userSubset = get("metadata")$user_group
+    )
     synStore(
         file.entity, activity = Activity(
             'replicate matched RData',
@@ -191,10 +191,10 @@ main <- function(){
     ## store to synapse with the correct annotation
     file.entity<- synapser::File(OUTPUT_FILE$N_of_1, parent = OUTPUT_SYN_ID)
     file.entity$annotations <- list(
-        digitalAssessmentDetails = c("tapping", "walking", "resting", "voice"),
-        dataSubtype = "cohort",
-        analysis = "n of 1 analysis",
-        study = get("metadata")$study)
+        analysisType = "n of 1 analysis",
+        pipelineStep = "healthcode subsampling",
+        userSubset = get("metadata")$user_group
+    )
     synStore(
         file.entity, activity = Activity(
             'replicate matched RData',

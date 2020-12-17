@@ -39,8 +39,7 @@ FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 FIGURE_TITLE <- paste0("mPower_",
                        gsub(" ", "_", get("metadata")$user_group), 
                        "_supplementary_figure_11",".png")
-ANNOTATIONS <- list(study = tolower(get("metadata")$study),
-                    analysisType = "n of 1 Analysis",
+ANNOTATIONS <- list(analysisType = "n of 1 analysis",
                     analysisSubtype = "user medication activity vs tod",
                     userSubset = tolower(get("metadata")$user_group),
                     pipelineStep = "figures")

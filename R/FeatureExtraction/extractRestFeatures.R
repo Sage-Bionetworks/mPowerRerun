@@ -36,23 +36,13 @@ OUTPUT_FOLDER_ID <- SYN_ID_REF$raw$output_folder
 OUTPUT_FILE <- paste0(
     "mpowertools_raw_rest_features_", 
     gsub(" ", "_", get("metadata")$user_group), ".tsv")
-GIT_URL <- getPermlink(
-    getRepo(get("git")$repo), 
-    repositoryPath = file.path('R/FeatureExtraction',  SCRIPT_NAME))
-ANNOTATIONS <- list(study = get("metadata")$study,
-                    userSubset = get("metadata")$user_group,
-                    consortium = "mHealth",
+GIT_URL <- getPermlink(getRepo(get("git")$repo,
+                               ref="branch", 
+                               refName=get("git")$branch), 
+                       repositoryPath = file.path("R/FeatureExtraction", SCRIPT_NAME))
+ANNOTATIONS <- list(task = "resting", 
                     pipelineStep = "raw",
-                    dataType = "sensor",
-                    dataSubtype = "raw",
-                    analysisType = "",
-                    digitalAssessmentDetails = "resting",
-                    digitalAssessmentCategory = "gait",
-                    dataCollectionMethod = "active",
-                    sensorType = c("accelerometer", "gyroscope"),
-                    devicePlatform = "iOS",
-                    deviceLocation = c("flat surface", "pocket"),
-                    dataAccessInstructions = "syn23277418/wiki/607032")
+                    userSubset = get("metadata")$user_group)
 
 
 

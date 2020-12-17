@@ -88,21 +88,17 @@ get_raw_features_ref <- function(){
             "SELECT * FROM %s where parentId = '%s'", 
                 file_view, SYN_ID_REF$output_folder)))
     SYN_ID_REF$tapping <- (RAW_FEATURE_FILES%>%
-                           filter(
-                               stringr::str_detect(digitalAssessmentDetails, "tapping") &
-                                  pipelineStep == "raw"))$id
+                               filter(task == "tapping" &
+                                       pipelineStep == "raw"))$id
     SYN_ID_REF$walking <- (RAW_FEATURE_FILES%>%
                             filter(
-                                stringr::str_detect(digitalAssessmentDetails, "walking") &
-                                   pipelineStep == "raw"))$id
+                                task == "walking" & pipelineStep == "raw"))$id
     SYN_ID_REF$resting <- (RAW_FEATURE_FILES%>%
-                            filter(
-                                stringr::str_detect(digitalAssessmentDetails, "resting") &
-                                   pipelineStep == "raw"))$id
+                               filter(
+                                   task == "resting" & pipelineStep == "raw"))$id
     SYN_ID_REF$voice <- (RAW_FEATURE_FILES%>%
                              filter(
-                                 stringr::str_detect(digitalAssessmentDetails, "voice") &
-                                     pipelineStep == "raw"))$id
+                                 task == "voice" & pipelineStep == "raw"))$id
     return(SYN_ID_REF)
 }
 
@@ -120,22 +116,18 @@ get_processed_features_ref <- function(){
         sprintf("SELECT * FROM %s where parentId = '%s'", 
                 file_view, 
                 SYN_ID_REF$output_folder)))
-    SYN_ID_REF$tapping  <- (PROCESSED_FEATURE_FILES %>%
-                                    dplyr::filter(
-                                        stringr::str_detect(digitalAssessmentDetails, "tapping") &
-                                            pipelineStep == "processed"))$id
+    SYN_ID_REF$tapping <- (PROCESSED_FEATURE_FILES %>%
+                               filter(task == "tapping" &
+                                          pipelineStep == "processed"))$id
+    SYN_ID_REF$walking <- (PROCESSED_FEATURE_FILES %>%
+                               filter(
+                                   task == "walking" & pipelineStep ==  "processed"))$id
     SYN_ID_REF$resting <- (PROCESSED_FEATURE_FILES %>%
-                                     dplyr::filter(
-                                         stringr::str_detect(digitalAssessmentDetails, "resting") &
-                                             pipelineStep == "processed"))$id
-    SYN_ID_REF$walking <- (PROCESSED_FEATURE_FILES%>%
-                                     dplyr::filter(
-                                         stringr::str_detect(digitalAssessmentDetails, "walking") &
-                                             pipelineStep == "processed"))$id
-    SYN_ID_REF$voice <- (PROCESSED_FEATURE_FILES%>%
-                                      dplyr::filter(
-                                          stringr::str_detect(digitalAssessmentDetails, "voice") &
-                                              pipelineStep == "processed"))$id
+                               filter(
+                                   task == "resting" & pipelineStep ==  "processed"))$id
+    SYN_ID_REF$voice <- (PROCESSED_FEATURE_FILES %>%
+                             filter(
+                                 task == "voice" & pipelineStep ==  "processed"))$id
     return(SYN_ID_REF)
 }
 

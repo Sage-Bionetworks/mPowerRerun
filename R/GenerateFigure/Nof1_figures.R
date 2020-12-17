@@ -52,9 +52,8 @@ FIGURE_OUTPUT_SYN_ID <- SYN_ID_REF$figures$output_folder
 N_OF_1_ANALYSIS_SYN_ID <- SYN_ID_REF$intermediate$n_of_1_analysis
 
 ANNOTATIONS <- list(
-    study = tolower(get("metadata")$study),
-    analysisType = "n of 1 Analysis",
-    analysisSubtype = c("treatment vs time-of-day", "relative importances"),
+    analysisType = "n of 1 analysis",
+    analysisSubtype = "treatment vs tod - relative importance",
     userSubset = tolower(get("metadata")$user_group), 
     pipelineStep = "figures")
 

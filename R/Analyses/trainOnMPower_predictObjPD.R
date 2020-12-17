@@ -57,9 +57,7 @@ OBJ.PD.METADATA <- "syn12178233"
 SAMPLE.IDENTIFIER <- "syn8533708"
 ANNOTATIONS <- list(
     analysisType = "combined model",
-    dataSubtype = "processed",
     userSubset = get("metadata")$user_group,
-    study = get("metadata")$study,
     pipelineStep= "intermediary data",
     analysisSubtype = "confidence score on ObjectivePD users")
 

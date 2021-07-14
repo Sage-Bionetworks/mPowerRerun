@@ -5,7 +5,6 @@ FROM rocker/tidyverse:4.0.0
 RUN apt-get update -y\
     && apt-get install -y dpkg-dev zlib1g-dev libssl-dev libffi-dev libglu1-mesa-dev\
     && apt-get install -y curl libcurl4-openssl-dev\
-    && apt-get install -y libcurl-dev\
     && apt-get install -y git
     
 ## run git cloning

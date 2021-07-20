@@ -8,7 +8,6 @@ serializedModel/
 .DS_store
 
 # History files
-.Rprofile
 .Rhistory
 .Rapp.history
 *.Rproj

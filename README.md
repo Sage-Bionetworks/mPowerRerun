@@ -56,7 +56,7 @@ docker run -d <IMAGE_NAME> -p 8787:8787 -e PASSWORD="sage" <IMAGE_NAME>
 - `-p` specifies port of choice
 - `-it` for interactive mode in the Docker container
 
-### 4) Set up config.yml and .RProfile
+### 4) Set up config.yml and .Renviron
 
 The data workflow will make use of config.yml to preserve all the required data input for both data 6-months-study and the public release. Before running the data workflow, we will require your Github Personal Access Token from Step 1 and the Synapse Project ID to store where your results will be stored. 
 
@@ -78,14 +78,14 @@ git:
     file_view_name: "mPower Rerun Results - Public - File View"
 ```
 
-#### iii) Configure .RProfile
+#### iii) Configure .Renviron
 a. Reproducing Public Release Results:
 ```R
-Sys.setenv(R_CONFIG_ACTIVE = "default")
+R_CONFIG_ACTIVE = "default"
 ```
 b. Reproducing 6 Months Study Results:
 ```R
-Sys.setenv(R_CONFIG_ACTIVE = "public_release")
+R_CONFIG_ACTIVE = "6_months_study"
 ```
 
 ### 5) Running the Data Pipeline

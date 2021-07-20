@@ -1,9 +1,8 @@
 # Sage Bionetworks - mPowerRerun
-Author: Elias Chaibub Neto, Larsson Omberg, Aryton Tediarjo
 
-CP: aryton.tediarjo@sagebase.org
+<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Sage-Bionetworks/mPowerRerun">  <img alt="GitHub issues" src="https://img.shields.io/github/issues/Sage-Bionetworks/mPowerRerun">
 
-## Introduction
+## About
 This code repository contains streamlined approach in rerunning mPower Nature Biotech's Publication named **Remote Smartphone Monitoring of Parkinson Disease and Individual Response to Therapy**. This repository streamlines all the analysis results from the paper starting from our data warehouse to publication results.
 
 **Analysis being done in the Data Pipeline:**
@@ -57,18 +56,51 @@ docker run -d <IMAGE_NAME> -p 8787:8787 -e PASSWORD="sage" <IMAGE_NAME>
 - `-p` specifies port of choice
 - `-it` for interactive mode in the Docker container
 
-## Pipeline Steps
-Once all environment is set up, you will be able to run the DAG pipeline through the `Makefile`.
+### 4) Set up Config
+Once all environment is set up, you will need to set your Git Personal Access Token and desired Synapse project ID for storing all the results of the analysis
 
-In a terminal, writing this code will help you run through the whole analysis. 
+#### i) Set up Git
+```
+git:
+  path: <PATH_TO_GIT_PERSONAL_ACCESS_TOKEN>
+  repo: "Sage-Bionetworks/mPowerRerun"
+  branch: "main"
+```
+
+#### ii) Set project Output
+```
+ output:
+    project_id: <SYNAPSE_PROJECT_ID>
+    folder_name: "mPower Rerun Results - Public"
+    file_view_name: "mPower Rerun Results - Public - File View"
+```
+
+### iii) Configure .RProfile
+a. Reproducing 6 Months Study:
+```
+Sys.setenv(R_CONFIG_ACTIVE = "default")
+```
+b. Reproducing Public Release Results:
+```
+Sys.setenv(R_CONFIG_ACTIVE = "default")
+```
+
+### 5) Running the Data Pipeline
+To run the data pipeline, `Makefile` is used to maintaining the data workflow.
+
+a. Reproducing 6 Months Study:
+```
+make regenerate_paper
+```
+b. Reproducing Public Release:
 ```
 make all
 ```
 
-If you are interested in doing part of the pipeline, you can check the Makefile to run each of the steps individually
+If you are interested in doing part of the pipeline, refer to `Makefile` to run each of the steps individually
 
 
-## Misc. Information
+## Misc. Info:
 #### a. Serialized Model
 Serialized model of our end **Random Forest** (trained on sensor features only) into a folder called serializedModel/ in .RDS serialized file during the [objectivePD cohort prediction](https://github.com/arytontediarjo/mPowerRerun/blob/master/R/Analyses/trainOnMPower_predictObjPD.R).
 

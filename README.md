@@ -75,7 +75,7 @@ git:
     file_view_name: "mPower Rerun Results - Public - File View"
 ```
 
-### iii) Configure .RProfile
+#### iii) Configure .RProfile
 a. Reproducing 6 Months Study:
 ```
 Sys.setenv(R_CONFIG_ACTIVE = "default")

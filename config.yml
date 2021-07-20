@@ -1,3 +1,6 @@
+# This config file is used for rerunning mPower Analysis for the Nature Biotech Submission
+# it contains the required synapse ID output to replicate the paper and for the public release dataset 
+# Maintainer: aryton.tediarjo@sagebase.org
 default:
   git:
     path: "~/git_token.txt"
@@ -6,7 +9,7 @@ default:
   metadata:
     user_group: '6_months' # annotation helper for referring which user group
   output:
-    project_id: 'syn25983644' # refer to your desired output project id
+    project_id: <DESIRED__PROJECT_SYN_ID>
     folder_name: "mPower Rerun Results"
     file_view_name: "mPower Rerun Results - File View"
   synapse_tables:
@@ -24,7 +27,7 @@ public_release:
   metadata:
     user_group: 'public_release' # annotation helper for referring which user group
   output:
-    project_id: 'syn20816722' # refer to your desired output project id
+    project_id: <DESIRED__PROJECT_SYN_ID>
     folder_name: "mPower Rerun Results - Public"
     file_view_name: "mPower Rerun Results - Public - File View"
   synapse_tables:
@@ -34,4 +37,3 @@ public_release:
     voice: "syn5511444"
   additional:
     voice_features: 'syn22041873' #generated voice features from matlab (not reproducible)
-

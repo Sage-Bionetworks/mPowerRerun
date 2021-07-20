@@ -82,7 +82,7 @@ Sys.setenv(R_CONFIG_ACTIVE = "default")
 ```
 b. Reproducing Public Release Results:
 ```
-Sys.setenv(R_CONFIG_ACTIVE = "default")
+Sys.setenv(R_CONFIG_ACTIVE = "public_release")
 ```
 
 ### 5) Running the Data Pipeline

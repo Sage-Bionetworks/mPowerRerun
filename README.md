@@ -36,7 +36,7 @@ We use R `renv` package to manage all the dependencies and its versioning, thus 
 
 ##### Installing dependencies
 ```R
-remotes::install_github('rstudio/renv@0.13.2')
+install.packages("renv")
 renv::init(bare = T)
 renv::restore()
 ```

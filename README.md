@@ -48,13 +48,18 @@ renv::restore()
 This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment.
 
 - Create Docker Image & Container:
+
+#### Build Docker Image
 ```bash
-docker build -t <IMAGE_NAME> . 
-docker run -d <IMAGE_NAME> -p 8787:8787 -e PASSWORD="sage" <IMAGE_NAME>
+docker build -t mpower_rerun . 
+```
+#### Run Docker Container
+``` 
+docker run -p 8787:8787 -v <PATH_TO_GIT_TOKEN>:/home/rstudio/git_token.txt -e PASSWORD=sage -d mpower_rerun
 ```
 - `-d` flag allows you the retain use of the terminal while the Docker image is running 
 - `-p` specifies port of choice
-- `-it` for interactive mode in the Docker container
+- `-v` for attaching Github PAT to container
 
 ### 4) Set up config.yml and .Renviron
 

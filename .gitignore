@@ -15,6 +15,7 @@ serializedModel/
 
 # Session Data files
 .RData
+.Rprofile
 
 # User-specific files
 .Ruserdata

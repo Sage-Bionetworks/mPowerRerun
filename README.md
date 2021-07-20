@@ -54,12 +54,8 @@ This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docke
 docker build -t mpower_rerun . 
 ```
 #### Run Docker Container
-``` 
-docker run -p 8787:8787 -v <PATH_TO_GIT_TOKEN>:/home/rstudio/git_token.txt -e PASSWORD=sage -d mpower_rerun
-```
-- `-d` flag allows you the retain use of the terminal while the Docker image is running 
-- `-p` specifies port of choice
-- `-v` for attaching Github PAT to container
+[Tutorial on many ways to run a Rstudio Docker container]("https://hub.docker.com/r/rocker/rstudio)
+
 
 ### 4) Set up config.yml and .Renviron
 

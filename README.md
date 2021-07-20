@@ -56,8 +56,11 @@ docker run -d <IMAGE_NAME> -p 8787:8787 -e PASSWORD="sage" <IMAGE_NAME>
 - `-p` specifies port of choice
 - `-it` for interactive mode in the Docker container
 
-### 4) Set up Config
-Once all environment is set up, you will need to set your Git Personal Access Token and desired Synapse project ID for storing all the results of the analysis
+### 4) Set up config.yml and .RProfile
+
+The data workflow will make use of config.yml to preserve all the required data input for both data 6-months-study and the public release. Before running the data workflow, we will require your Github Personal Access Token from Step 1 and the Synapse Project ID to store where your results will be stored. 
+
+`.RProfile` will be used to control which `config.yml` option you want to use (default is set for public release).
 
 #### i) Set up Git
 ```

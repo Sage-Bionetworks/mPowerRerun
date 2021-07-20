@@ -6,7 +6,7 @@ default:
   metadata:
     user_group: '6_months' # annotation helper for referring which user group
   output:
-    project_id: 'syn20816722' # refer to your desired output project id
+    project_id: 'syn25983644' # refer to your desired output project id
     folder_name: "mPower Rerun Results"
     file_view_name: "mPower Rerun Results - File View"
   synapse_tables:

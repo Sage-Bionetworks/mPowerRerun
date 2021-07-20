@@ -63,7 +63,7 @@ The data workflow will make use of config.yml to preserve all the required data 
 `.RProfile` will be used to control which `config.yml` option you want to use (default is set for public release).
 
 #### i) Set up Git
-```
+```R
 git:
   path: <PATH_TO_GIT_PERSONAL_ACCESS_TOKEN>
   repo: "Sage-Bionetworks/mPowerRerun"
@@ -71,7 +71,7 @@ git:
 ```
 
 #### ii) Set project Output
-```
+```R
  output:
     project_id: <SYNAPSE_PROJECT_ID>
     folder_name: "mPower Rerun Results - Public"
@@ -79,12 +79,12 @@ git:
 ```
 
 #### iii) Configure .RProfile
-a. Reproducing 6 Months Study:
-```
+a. Reproducing Public Release Results:
+```R
 Sys.setenv(R_CONFIG_ACTIVE = "default")
 ```
-b. Reproducing Public Release Results:
-```
+b. Reproducing 6 Months Study Results:
+```R
 Sys.setenv(R_CONFIG_ACTIVE = "public_release")
 ```
 
@@ -92,11 +92,11 @@ Sys.setenv(R_CONFIG_ACTIVE = "public_release")
 To run the data pipeline, `Makefile` is used to maintaining the data workflow.
 
 a. Reproducing 6 Months Study:
-```
+```R
 make regenerate_paper
 ```
 b. Reproducing Public Release:
-```
+```R
 make all
 ```
 

@@ -36,11 +36,11 @@ If restoring environment fails, our Docker documentation provide a Docker Image 
 
 #### Installing dependencies
 
-##### Install `renv` library
+##### i). Install `renv` library
 ```R
 install.packages("renv") 
 ```
-##### Restore environment using `renv`
+##### ii). Restore environment using `renv`
 ```R
 renv::init(bare = T) #create renv empty environment
 renv::restore() #restore all libraries
@@ -49,16 +49,16 @@ renv::restore() #restore all libraries
 #### (Optional) Docker
 - [Install Docker.](https://docs.docker.com/v17.12/install/#supported-platforms)
 
-##### Create Docker Image & Run Container
+##### i). Create Docker Image & Run Container
 This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment.
 
 - Create Docker Image & Container:
 
-##### Build Docker Image
+##### ii). Build Docker Image
 ```bash
 docker build -t mpower_rerun . 
 ```
-##### Run Docker Container
+##### iii). Run Docker Container
 [Tutorial on many ways to run a Rstudio Docker container]("https://hub.docker.com/r/rocker/rstudio)
 
 

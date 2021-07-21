@@ -9,6 +9,22 @@
       {
         "Name": "SAGE",
         "URL": "http://ran.synapse.org"
+      },
+      {
+        "Name": "BioCsoft",
+        "URL": "https://www.bioconductor.org/packages/3.12/bioc"
+      },
+      {
+        "Name": "BioCann",
+        "URL": "https://www.bioconductor.org/packages/3.12/data/annotation"
+      },
+      {
+        "Name": "BioCexp",
+        "URL": "https://www.bioconductor.org/packages/3.12/data/experiment"
+      },
+      {
+        "Name": "BioCworkflows",
+        "URL": "https://www.bioconductor.org/packages/3.12/workflows"
       }
     ]
   },

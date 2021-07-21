@@ -59,7 +59,7 @@ This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docke
 docker build -t mpower_rerun . 
 ```
 ##### iii). Run Docker Container
-[Tutorial on many ways to run a Rstudio Docker container]("https://hub.docker.com/r/rocker/rstudio)
+[Tutorial on ways to run a Rstudio Docker container](https://hub.docker.com/r/rocker/rstudio)
 
 
 ### 4) Set up config.yml and .Renviron

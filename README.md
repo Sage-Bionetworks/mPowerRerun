@@ -30,7 +30,7 @@ git clone https://github.com/Sage-Bionetworks/mPowerRerun
 
 ### 3) Setting up Environment & Dependencies
 You have two options for setting up your environment, either through your own local machine or a Docker Container.
-We use R `renv` package to manage all the dependencies and its versioning, thus you would need `renv` library installed to your RStudio.
+We use R `renv` package to manage all the dependencies and its versioning (**Note: Environment Requires R Version 4.0 and above**)
 
 If restoring environment fails, our Docker documentation provide a Docker Image that can restore the libraries and its corresponding system dependencies.
 

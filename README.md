@@ -29,31 +29,36 @@ git clone https://github.com/Sage-Bionetworks/mPowerRerun
 ```
 
 ### 3) Setting up Environment & Dependencies
-You have two options for setting up your environment, either through your own local machine or a Docker Container
-
-#### a. RStudio
+You have two options for setting up your environment, either through your own local machine or a Docker Container.
 We use R `renv` package to manage all the dependencies and its versioning, thus you would need `renv` library installed to your RStudio.
 
-##### Installing dependencies
+If restoring environment fails, our Docker documentation provide a Docker Image that can restore the libraries and its corresponding system dependencies.
+
+#### Installing dependencies
+
+##### Install `renv` library
 ```R
-install.packages("renv")
-renv::init(bare = T)
-renv::restore()
+install.packages("renv") 
+```
+##### Restore environment using `renv`
+```R
+renv::init(bare = T) #create renv empty environment
+renv::restore() #restore all libraries
 ```
 
-#### b. Docker
+#### (Optional) Docker
 - [Install Docker.](https://docs.docker.com/v17.12/install/#supported-platforms)
 
-#### Create Docker Image & Run Container
+##### Create Docker Image & Run Container
 This Docker container is built on top of  [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse/) producing a debian stable work environment.
 
 - Create Docker Image & Container:
 
-#### Build Docker Image
+##### Build Docker Image
 ```bash
 docker build -t mpower_rerun . 
 ```
-#### Run Docker Container
+##### Run Docker Container
 [Tutorial on many ways to run a Rstudio Docker container]("https://hub.docker.com/r/rocker/rstudio)
 
 

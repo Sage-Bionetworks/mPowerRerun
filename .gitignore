@@ -8,7 +8,6 @@ serializedModel/
 .DS_store
 
 # History files
-.Rprofile
 .Rhistory
 .Rapp.history
 *.Rproj
@@ -16,6 +15,7 @@ serializedModel/
 
 # Session Data files
 .RData
+.Rprofile
 
 # User-specific files
 .Ruserdata
@@ -46,6 +46,3 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
-
-# R Environment Variables
-.Renviron

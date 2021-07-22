@@ -5,38 +5,19 @@ FROM rocker/tidyverse:4.0.0
 RUN apt-get update -y\
     && apt-get install -y dpkg-dev zlib1g-dev libssl-dev libffi-dev libglu1-mesa-dev\
     && apt-get install -y curl libcurl4-openssl-dev\
+    && apt-get install -y libgsl-dev\
     && apt-get install -y git
+    
+## run git cloning
+RUN git clone --branch renv https://github.com/Sage-Bionetworks/mPowerRerun /root/mPowerRerun
 
-## install R environment
-RUN R -e "install.packages('remotes')"\
-    && R -e "install.packages('rgl', dependencies = TRUE)"\
-    && R -e "remotes::install_github('Sage-Bionetworks/mpowertools')"\
-    && R -e "install.packages('PythonEmbedInR', repos=c('http://cran.fhcrc.org', 'http://ran.synapse.org'))"\
-    && R -e "install.packages('synapser', repos = c('http://ran.synapse.org', 'http://cran.fhcrc.org'))"\
-    && R -e "install.packages('BiocManager')"\
-    && R -e "BiocManager::install('rhdf5')"\
-    && R -e "install.packages('pROC')"\
-    && R -e "install.packages('ppcor')"\
-    && R -e "install.packages('randomForest')"\
-    && R -e "install.packages('glmnet', dependencies=TRUE)"\
-    && R -e "install.packages('lubridate')"\
-    && R -e "install.packages('energy')"\
-    && R -e "install.packages('lmtest')"\
-    && R -e "install.packages('forecast')"\
-    && R -e "install.packages('sandwich')"\
-    && R -e "install.packages('gplots')"\
-    && R -e "install.packages('dplyr')"\
-    && R -e "install.packages('doMC')"\
-    && R -e "devtools::install_github('th1vairam/CovariateAnalysis@dev')"\
-    && R -e "devtools::install_github('brian-bot/githubr')"\
-    && R -e "install.packages('stringr')"\
-    && R -e "install.packages('plyr')"\
-    && R -e "install.packages('MatchIt')"\
-    && R -e "install.packages('config')"\
-    && R -e "install.packages('install.load')"\
-    && R -e "install.packages('survminer')"\
-    && R -e "install.packages('ggpubr')"\
-    && R -e "install.packages('ggpval')"\
-    && R -e "install.packages('ggExtra')"\
-    && R -e "install.packages('rstatix')"\
-    && R -e "install.packages('relaimpo')"
+## change work dir
+WORKDIR /root/mPowerRerun
+
+## install R environment using lockfile
+ENV RENV_VERSION 0.13.2
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN R -e "install.packages('synapser', repos=c('http://ran.synapse.org', 'http://cran.fhcrc.org'))"
+RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
+RUN R -e "renv::init(bare = TRUE)"
+RUN R -e "renv::restore()"

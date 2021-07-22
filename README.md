@@ -66,7 +66,7 @@ docker build -t mpower_rerun .
 
 The data workflow will make use of config.yml to preserve all the required data input for both data 6-months-study and the public release. Before running the data workflow, we will require your Github Personal Access Token from Step 1 and the Synapse Project ID to store where your results will be stored. 
 
-`.RProfile` will be used to control which `config.yml` option you want to use (default is set for public release).
+`.Renviron` will be used to control which `config.yml` option you want to use (default is set for public release).
 
 #### i) Set up Git
 ```R

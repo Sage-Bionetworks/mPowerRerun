@@ -9,7 +9,7 @@ default:
   metadata:
     user_group: 'public_release' # annotation helper for referring which user group
   output:
-    project_id: "syn25983644"
+    project_id: "syn26434320"
     folder_name: "mPower Rerun Results - Public"
     file_view_name: "mPower Rerun Results - Public - File View"
   synapse_tables:
@@ -19,6 +19,7 @@ default:
     voice: "syn5511444"
   additional:
     voice_features: 'syn22041873' #generated voice features from matlab (not reproducible)
+    utc_info: 'syn26450848'
 6_months_study:
   git:
     path: "~/git_token.txt"
@@ -37,3 +38,4 @@ default:
     voice: "syn7222424"
   additional:
     voice_features: 'syn22041873' #generated voice features from matlab
+    utc_info: 'syn23512320'

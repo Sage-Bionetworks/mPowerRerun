@@ -83,8 +83,10 @@ get.features <- function(){
 
 #' get UTC informations
 get.utc.info <- function(){
-  utc.data <-  read.csv(synGet(UTC_DATA_SYN_ID)$path, 
-                        sep = "\t") %>% 
+  utc.data.id <- config::get("additional")$utc_info
+  utc.data <-  read.csv(
+    synGet(utc.data.id)$path, 
+    sep = "\t") %>% 
     dplyr::select(healthCode, UTC_offset)
   return(utc.data)
 }

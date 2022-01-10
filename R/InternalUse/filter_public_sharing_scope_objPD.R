@@ -15,6 +15,13 @@ bridgeclient::bridge_login(
 config::get()
 setGithubToken(readLines(
     file.path(path.expand("~"), "git_token.txt")))
+SCRIPT_NAME <- "filter_public_sharing_scope_objPD.R"
+GIT_URL <- getPermlink(
+    getRepo(get("git")$repo,
+            ref="branch", 
+            refName=get("git")$branch), 
+    repositoryPath = file.path(
+        'R/InternalUse', SCRIPT_NAME))
 
 OUTPUT_PARENT_ID <- "syn26715149"
 MAPPING_IDENTIFIER <- "syn8533708"

@@ -7,12 +7,12 @@ default:
     repo: "Sage-Bionetworks/mPowerRerun"
     branch: "main"
   output:
-    project_id: "syn23277418"
+    project_id: "syn26282646"
   additional:
     voice_features: 'syn22041873' #generated voice features from matlab (not reproducible)
 public:
   metadata:
-    user_group: 'public data' # annotation helper for referring which user group
+    user_group: 'public_release' # annotation helper for referring which user group
   output:
     folder_name: "mPower Rerun Results - Public"
     file_view_name: "mPower Rerun - Public - File View"
@@ -25,7 +25,7 @@ public:
     utc_info: 'syn26450848'
 6_months_study:
   metadata:
-    user_group: '6 months study' # annotation helper for referring which user group
+    user_group: '6_months_study' # annotation helper for referring which user group
   output:
     folder_name: "mPower Rerun Results - 6 Months Study"
     file_view_name: "mPower Rerun - 6 Months Study - File View"

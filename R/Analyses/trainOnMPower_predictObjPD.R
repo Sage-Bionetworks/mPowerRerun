@@ -42,19 +42,14 @@ GIT_URL <- getPermlink(
             ref="branch", 
             refName=get("git")$branch), 
     repositoryPath = file.path('R/Analyses', SCRIPT_NAME))
-SYN_ID_REF <- list(processed = get_processed_features_ref(),
-                   healthcode = get_healthcode_ref(),
-                   intermediate = get_intermediate_data_ref())
+SYN_ID_REF <- list(
+    processed = get_processed_features_ref(),
+    healthcode = get_healthcode_ref(),
+    intermediate = get_intermediate_data_ref(),
+    objectivePD = get_obj_pd_ref())
 FEATURE_LIST <- get_features()
 OUTPUT_FILENAME <- paste0("PD_Probabilities_ObjectivePD_Users_",
-                          gsub(" ", "_", get("metadata")$time_freeze), ".tsv")
-OBJ.PD.FEATURES <- list()
-OBJ.PD.FEATURES$tap <- "syn8075029"
-OBJ.PD.FEATURES$voice <- "syn8262306"
-OBJ.PD.FEATURES$walk <- "syn8089484"
-OBJ.PD.FEATURES$rest <- "syn8225448"
-OBJ.PD.METADATA <- "syn12178233"
-SAMPLE.IDENTIFIER <- "syn8533708"
+                          gsub(" ", "_", get("metadata")$user_group), ".tsv")
 ANNOTATIONS <- list(
     analysisType = "combined model",
     userSubset = get("metadata")$user_group,
@@ -211,8 +206,10 @@ GetRfPrediction <- function(activity, odatC, opdHC) {
 
 
 ## Shape ObjectivePD clinical data.
-MapRecordHealthCodeAndRocCode <- function(cVarNames = NULL, covNames = NULL, version = NULL) {
-    cVar <- read.delim(synGet(OBJ.PD.METADATA, 
+MapRecordHealthCodeAndRocCode <- function(cVarNames = NULL, 
+                                          covNames = NULL, 
+                                          version = NULL) {
+    cVar <- read.delim(synGet(SYN_ID_REF$objectivePD$clinical, 
                               version = version)$path, 
                        header = TRUE, sep = "\t")
     cVar <- cVar[, c("record", "Do.you.have.Parkinson.disease.", 
@@ -236,10 +233,11 @@ MapRecordHealthCodeAndRocCode <- function(cVarNames = NULL, covNames = NULL, ver
         }
     }
     names(ucVar) <- c("record", "PD", cVarNames, covNames)
-    sampleIds <- read.csv(synGet(SAMPLE.IDENTIFIER)$path, 
-                          header = FALSE)
+    sampleIds <- read.delim(synGet(SYN_ID_REF$objectivePD$mapping)$path, 
+                          header = TRUE, sep = "\t")
     names(sampleIds) <- c("healthCode", "rocCode")
-    sampleIds <- sampleIds[-which(sampleIds$rocCode == "ROC00TEST"),] ## remove ROC00TEST
+    sampleIds <- sampleIds %>%
+        dplyr::filter(rocCode != "ROC00TEST")
     rocCode2 <- as.numeric(substr(sampleIds[, 2], 5, 6))
     sampleIds <- data.frame(sampleIds, rocCode2)
     dat <- data.frame(ucVar, sampleIds[match(ucVar$record, rocCode2),])
@@ -292,19 +290,19 @@ main <- function(){
     metC <- MapRecordHealthCodeAndRocCode(cVarNames = cnms, covNames = NULL)
     
     ## Get ObjectivePD features.
-    tapFeat <- read.delim(synGet(OBJ.PD.FEATURES$tap)$path, 
+    tapFeat <- read.delim(synGet(SYN_ID_REF$objectivePD$tapping)$path, 
                           sep = "\t", stringsAsFactors = FALSE)
     tapHCopd <- names(table(tapFeat$healthCode))
     
-    voiFeat <- read.delim(synGet(OBJ.PD.FEATURES$voice)$path, 
+    voiFeat <- read.delim(synGet(SYN_ID_REF$objectivePD$voice)$path, 
                           sep = "\t", stringsAsFactors = FALSE)
     voiHCopd <- names(table(voiFeat$healthCode))
     
-    walFeat <- read.delim(synGet(OBJ.PD.FEATURES$walk)$path, 
+    walFeat <- read.delim(synGet(SYN_ID_REF$objectivePD$walking)$path, 
                           sep = "\t", stringsAsFactors = FALSE)
     walHCopd <- names(table(walFeat$healthCode))
     
-    resFeat <- read.delim(synGet(OBJ.PD.FEATURES$rest)$path, 
+    resFeat <- read.delim(synGet(SYN_ID_REF$objectivePD$resting)$path, 
                           sep = "\t", stringsAsFactors = FALSE)
     resHCopd <- names(table(resFeat$healthCode))
     
@@ -365,8 +363,7 @@ main <- function(){
             executed = GIT_URL, 
             used = c(SYN_ID_REF$processed %>% purrr::flatten_chr(),
                      SYN_ID_REF$healthcode$case_vs_controls,
-                     OBJ.PD.FEATURES %>% purrr::flatten_chr(),
-                     OBJ.PD.METADATA, SAMPLE.IDENTIFIER)))
+                     SYN_ID_REF$objectivePD %>% purrr::flatten_chr())))
     unlink(OUTPUT_FILENAME)
 }
 

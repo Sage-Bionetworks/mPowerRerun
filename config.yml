@@ -6,36 +6,33 @@ default:
     path: "~/git_token.txt"
     repo: "Sage-Bionetworks/mPowerRerun"
     branch: "main"
-  metadata:
-    user_group: 'public_release' # annotation helper for referring which user group
   output:
-    project_id: "syn26434320"
+    project_id: "syn23277418"
+  additional:
+    voice_features: 'syn22041873' #generated voice features from matlab (not reproducible)
+public:
+  metadata:
+    user_group: 'public data' # annotation helper for referring which user group
+  output:
     folder_name: "mPower Rerun Results - Public"
-    file_view_name: "mPower Rerun Results - Public - File View"
+    file_view_name: "mPower Rerun - Public - File View"
   synapse_tables:
     demo: "syn5511429"
     gait: "syn5511449" #walk and balance test 
     tap: "syn5511439"
     voice: "syn5511444"
   additional:
-    voice_features: 'syn22041873' #generated voice features from matlab (not reproducible)
     utc_info: 'syn26450848'
 6_months_study:
-  git:
-    path: "~/git_token.txt"
-    repo: "Sage-Bionetworks/mPowerRerun"
-    branch: "main"
   metadata:
-    user_group: '6_months' # annotation helper for referring which user group
+    user_group: '6 months study' # annotation helper for referring which user group
   output:
-    project_id: "syn25983644"
-    folder_name: "mPower Rerun Results - Copy"
-    file_view_name: "mPower Rerun Results - Copy - File View"
+    folder_name: "mPower Rerun Results - 6 Months Study"
+    file_view_name: "mPower Rerun - 6 Months Study - File View"
   synapse_tables:
     demo: "syn7222419"
     gait: "syn7222425" #walk and balance test 
     tap: "syn7222423"
     voice: "syn7222424"
   additional:
-    voice_features: 'syn22041873' #generated voice features from matlab
     utc_info: 'syn23512320'

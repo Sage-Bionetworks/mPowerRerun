@@ -87,7 +87,7 @@ git:
 #### iii) Configure .Renviron
 a. Reproducing Public Release Results:
 ```R
-R_CONFIG_ACTIVE = "default"
+R_CONFIG_ACTIVE = "public"
 ```
 b. Reproducing 6 Months Study Results:
 ```R

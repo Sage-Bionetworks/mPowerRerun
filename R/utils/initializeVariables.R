@@ -194,7 +194,7 @@ get_healthcode_ref <- function(){
     SYN_ID_REF$n_of_one <- (healthcode_df %>%
                                         dplyr::filter(
                                             analysisType == "n of 1 analysis"))$id
-    
+    SYN_ID_REF$state_mapping <- config::get("additional")$utc_info
     return(SYN_ID_REF)
 }
 

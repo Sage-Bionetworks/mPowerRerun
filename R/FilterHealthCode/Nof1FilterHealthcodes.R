@@ -26,12 +26,12 @@ setGithubToken(
 #######################################################
 ## Instantiate Variables and Reference IDs
 #######################################################
-UTC_DATA_SYN_ID <- 'syn23512320'
 SCRIPT_NAME <-  "Nof1FilterHealthcodes.R"
 FEATURE_LIST <- get_features()
 SYN_ID_REF <- list(processed = get_processed_features_ref(),
                    healthcode = get_healthcode_ref())
 DEMOGRAPHICS_TBL_SYN_ID <- get("synapse_tables")$demo
+UTC_DATA_SYN_ID <- SYN_ID_REF$healthcode$state_mapping
 WALK_TBL_SYN_ID <- SYN_ID_REF$processed$walking
 TAP_TBL_SYN_ID <- SYN_ID_REF$processed$tapping
 VOICE_TBL_SYN_ID <- SYN_ID_REF$processed$voice

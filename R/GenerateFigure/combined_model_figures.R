@@ -39,7 +39,12 @@ FIGURE_NAME <- paste0("mPower_",
                       gsub(" ", "_", get("metadata")$user_group), 
                       "_main_text_figure_3",".png")
 SYN_ID_REF <- list(figures = get_figure_ref(),
-                   intermediate = get_intermediate_data_ref())
+                   intermediate = get_intermediate_data_ref(),
+                   objectivePD = get_obj_pd_ref())
+
+## SYNAPSE ID REFERENCE FOR OBJECTIVE PD
+CLINICAL_FILE <- SYN_ID_REF$objectivePD$updrs
+SAMPLE_MAP <- SYN_ID_REF$objectivePD$mapping
 SCRIPT_NAME <-  "combined_model_figures.R"
 GIT_URL <- getPermlink(getRepo(get("git")$repo,
                                ref="branch", 
@@ -66,8 +71,9 @@ get_objectivePD_data <- function(){
         dplyr::rowwise() %>% 
         dplyr::mutate_all(~ifelse(is.na(.), median(c(tapping, voice, walk, rest), na.rm = TRUE), .)) %>%
         dplyr::mutate(combined.model = median(c_across(where(is.numeric))))
-    sample.map <- read.csv(synGet(SAMPLE_MAP)$path) %>% as_tibble(.)
-    clinical.df <- read.csv(synGet(CLINICAL_FILE, version = 6)$path) %>%
+    sample.map <- read.csv(synGet(SAMPLE_MAP)$path, sep = "\t") %>% 
+        as_tibble(.)
+    clinical.df <- read.csv(synGet(CLINICAL_FILE)$path, sep = "\t") %>%
         as_tibble(.) %>%
         rowwise() %>%
         dplyr::mutate(
@@ -92,8 +98,8 @@ get_objectivePD_data <- function(){
                       'se.adl.std' = "Schwab.and.England.Activities.of.Daily.Living.Scale.Score_fn2") %>%
         dplyr::inner_join(pd.mapping, on = c("externalId")) %>% 
         dplyr::inner_join(sample.map, by = c("externalId" = "id")) %>%
-        dplyr::inner_join(model.df, by = c("healthcode" = "healthCode")) %>% 
-        dplyr::select(healthCode = healthcode, everything())
+        dplyr::inner_join(model.df, by = c("healthCode" = "healthCode")) %>% 
+        dplyr::select(healthCode, everything())
     hoehn.yahr <- clinical.df %>% 
         dplyr::select(externalId, Estimated.Hoehn.and.Yahr.stage) %>%
         dplyr::select(externalId, HY = Estimated.Hoehn.and.Yahr.stage) %>% 
@@ -231,6 +237,4 @@ tryCatch({
     sink()
     stop("Stopped due to error - Please check error.log")
 })
-
-
 

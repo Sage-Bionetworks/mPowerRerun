@@ -194,7 +194,7 @@ get_healthcode_ref <- function(){
     SYN_ID_REF$n_of_one <- (healthcode_df %>%
                                         dplyr::filter(
                                             analysisType == "n of 1 analysis"))$id
-    
+    SYN_ID_REF$state_mapping <- config::get("additional")$utc_info
     return(SYN_ID_REF)
 }
 
@@ -209,5 +209,33 @@ get_figure_ref <- function(){
     SYN_ID_REF$output_folder <- as.data.frame(synTableQuery(
         sprintf("SELECT * FROM %s where pipelineStep = 'figures' AND type = 'folder'", 
                 file_view)))$id
+    return(SYN_ID_REF)
+}
+
+get_obj_pd_ref <- function(){
+    view_id <- "syn23545224"
+    group <- config::get("metadata")$user_group
+    SYN_ID_REF <- list()
+    SYN_ID_REF$clinical <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'clinical' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$mapping <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'mapping' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$updrs <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'updrs' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$tapping <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'tapping' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$walking <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'walking' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$resting <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'resting' AND userSubset = '{group}'")))$id
+    SYN_ID_REF$voice <- as.data.frame(synTableQuery(
+        glue::glue(
+            "SELECT * FROM {view_id} where pipelineStep = 'test data' AND task = 'voice' AND userSubset = '{group}'")))$id
     return(SYN_ID_REF)
 }
